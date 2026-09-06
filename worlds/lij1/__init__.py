@@ -1,1 +1,1 @@
-from .world import LEGOIndianaJonesWorld
+from .world import LEGOIndianaJonesWorld as LEGOIndianaJonesWorld
