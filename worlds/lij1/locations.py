@@ -1,17 +1,16 @@
 from typing import List
 from BaseClasses import Location
 
-location_table = [
-    "Lost Temple Entrance",
-    "Motorcycle Chase",
-    "Knight's Tomb",
-    "Library Puzzle",
-    "Train Escape",
-    "Mine Cart Chase"
-]
+def get_location_name_to_id():
+    location_name_to_id = {
+        "The Lost Temple - 1 Minikit": 1
+    }
 
 class LEGOIndianaJonesLocation(Location):
-    game = "LEGO Indiana Jones"
+    game = "LEGO Indiana Jones The Original Adventure"
 
-def get_locations(player: int) -> List[LEGOIndianaJonesLocation]:
-    return [LEGOIndianaJonesLocation(player, name, None) for name in location_table]
+def create_locations(world):
+    for location, lID in world.location_name_to_id.items():
+        menu = world.get_region("Menu")
+        location = LEGOIndianaJonesLocation(world.player, location, lID, menu)
+        menu.locations.append(location)
