@@ -8,7 +8,7 @@ def get_location_name_to_id():
     return location_name_to_id
 
 class LEGOIndianaJonesLocation(Location):
-    game = "LEGO Indiana Jones The Original Adventure"
+    game = "LEGO Indiana Jones The Original Adventures"
 
 def create_locations(world):
     for location, lID in world.location_name_to_id.items():
