@@ -19,6 +19,9 @@ class ROTLA_Levels:
 class TLC_Levels:
     LEVEL_NAME = "level"
 
+class Extras:
+    SECRET_CHARACTERS = "Secret Characters"
+
 #dataclass for minikit data. pretty much just a list designed to contain the abilities required for a minikit
 @dataclass
 class MinikitData:
@@ -29,6 +32,7 @@ class MinikitData:
 class LevelData:
     movie: str
     number: int
+    Parcel: str = "NONE"
     kitData: list[MinikitData] = field(default_factory=list)
 
  #Might redo this again. level data takes a list of Minikit data which holds a list of abilities. the idea is each instance of Minikit data will hold the abilities to get one of the minikits in the level
