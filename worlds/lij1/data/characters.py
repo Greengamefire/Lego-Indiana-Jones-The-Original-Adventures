@@ -16,7 +16,7 @@ class CharacterData:
 
 #The Dictionary containing all the needed information for characters. Key is the name, which gives character data. Items will iterate through this to create all characters and logic will use it when it comes to locations that need characters with certain abilities
 CHARACTERS: dict[str, CharacterData] = {
-    CharacterNames.HAN_SOLO: CharacterData(id = 1, abilities = [Abilities.FEMALE]),
+    CharacterNames.HAN_SOLO: CharacterData(id = 1, abilities = [Abilities.FEMALE,Abilities.FEMALE,Abilities.FEMALE]),
 }
 
 
