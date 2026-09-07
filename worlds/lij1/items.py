@@ -1,14 +1,16 @@
 from BaseClasses import Item, ItemClassification
+from .data.characters import CHARACTERS
 
 def get_item_name_to_id():
     item_table = {
-        "Han Solo": 1
+        #Get items for character unlocks
+        **{name: data.id for name, data in CHARACTERS.items()},
     }
     return item_table
 
-
+#creates a singular item with all needed information
 def create_item(name: str, world) -> Item:
-    return Item(name, ItemClassification.progression, 1, world.player)
+    return Item(name, ItemClassification.progression, world.item_name_to_id[name], world.player)
 
 def create_items(world):
     itempool: list[Item] = []
