@@ -12,11 +12,12 @@ class Abilities:
 @dataclass
 class CharacterData:
     id: int
+    character_index: int #what part of the character array this character is stored -1. for example indiana jones is at the first spot so his index is 0. han solo is at spot 2 with index 1
     abilities: list[str] = field(default_factory=list)
 
 #The Dictionary containing all the needed information for characters. Key is the name, which gives character data. Items will iterate through this to create all characters and logic will use it when it comes to locations that need characters with certain abilities
 CHARACTERS: dict[str, CharacterData] = {
-    CharacterNames.HAN_SOLO: CharacterData(id = 1, abilities = [Abilities.FEMALE,Abilities.FEMALE,Abilities.FEMALE]),
+    CharacterNames.HAN_SOLO: CharacterData(id = 1, character_index = 1, abilities = [Abilities.FEMALE,Abilities.FEMALE,Abilities.FEMALE]),
 }
 
 
