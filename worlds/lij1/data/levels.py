@@ -1,5 +1,7 @@
 from dataclasses import dataclass, field
 from .characters import Abilities, CharacterNames
+from ...oot.ntype import int32
+
 
 #Constants for each movie in the game
 class Movies:
@@ -32,7 +34,13 @@ class MinikitData:
 class LevelData:
     movie: str
     number: int
+    unlockAddress: int
+    FreePlayAddress: int
+    parcelAddress: int
+    minikitAddress: int
+    trueAdventurerAddress: int #the first address
     Parcel: str = "NONE"
+
     kitData: list[MinikitData] = field(default_factory=list)
 
  #Might redo this again. level data takes a list of Minikit data which holds a list of abilities. the idea is each instance of Minikit data will hold the abilities to get one of the minikits in the level
