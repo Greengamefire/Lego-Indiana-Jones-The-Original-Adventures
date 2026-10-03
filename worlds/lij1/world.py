@@ -12,13 +12,18 @@ class LEGOIndianaJonesWorld(World):
     web = LIJ1Web()
     options: LIJ1Options
 
+    #Get all items that can be in the game mapped to their ID
     item_name_to_id = get_item_name_to_id()
+    #Get all locations that can e in the game mapped to their ID
     location_name_to_id = get_location_name_to_id()
 
+    #runs when the user clicks launch from the APLauncher
     def run_client(*args):
         from .client import launch
+        #create a new subprocess that runs the launch function from client.py
         launch_subprocess(launch, name="LIJ1Client", args=args)
 
+    #tell the APLauncher to add our client to the list
     components.append(
         Component("Lego Indiana Jones The Original Adventures Client", func=run_client, component_type=Type.CLIENT)
     )
