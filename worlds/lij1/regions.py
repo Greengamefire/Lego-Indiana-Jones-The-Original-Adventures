@@ -2,9 +2,11 @@ from BaseClasses import Region, Entrance
 from .data.levels import LEVEL_DATA
 
 def create_regions(world):
+    #Create Menu Region
     menu_region = Region("Menu", world.player, world.multiworld)
     world.multiworld.regions.append(menu_region)
 
+    #loop through each level, create a region for it, then create an entrance between it and the menu region
     for level, data in LEVEL_DATA.items():
         region = Region(level, world.player, world.multiworld)
         world.multiworld.regions.append(region)

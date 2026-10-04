@@ -6,6 +6,7 @@ from .items import get_item_name_to_id, create_items, get_filler_item_name
 from .locations import get_location_name_to_id, create_locations
 from .regions import create_regions
 from .lij1_options import LIJ1Options
+from.rules import set_rules
 
 class LEGOIndianaJonesWorld(World):
     game = "LEGO Indiana Jones The Original Adventures"
@@ -27,6 +28,9 @@ class LEGOIndianaJonesWorld(World):
     components.append(
         Component("Lego Indiana Jones The Original Adventures Client", func=run_client, component_type=Type.CLIENT)
     )
+
+    def set_rules(self):
+        rules.set_rules(self)
 
     def create_items(self):
         create_items(self)
