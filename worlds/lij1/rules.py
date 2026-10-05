@@ -5,6 +5,7 @@ from .data.characters import CHARACTERS
 #ToDo do rule logic here
 def set_rules(world):
     for level, data in LEVEL_DATA.items():
+        #Level access is based on number of progressive level items for the movie
         rule = Has(world, f"{level} Unlock")
         entrance = world.multiworld.get_entrance(f"menu -> {level}")
         entrance.add_rule(rule)
