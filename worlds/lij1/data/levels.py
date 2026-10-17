@@ -9,15 +9,6 @@ class Movies:
     ROTLA = "Raiders of the Lost Ark"
     TLC = "The Last Crusade"
 
-#Constants for each level in temple of doom
-class TOD_Levels:
-    SHANGHAI_SHOWDOWN = "Shanghai Showdown"
-    PANKOT_SECRETS = "Pankot Secrets"
-    THE_TEMPLE_OF_KALI = "The Temple of Kali"
-    FREE_THE_SLAVES = "Free the Slaves"
-    ESCAPE_THE_MINES = "Escape the Mines"
-    BATTLE_ON_THE_BRIDGE = "Battle on the Bridge"
-
 #Constants for each level in Raiders of the lost Ark
 class ROTLA_Levels:
     THE_LOST_TEMPLE = "The Lost Temple"
@@ -26,6 +17,15 @@ class ROTLA_Levels:
     THE_WELL_OF_SOULS = "The Well of Souls"
     PURSUING_THE_ARK = "Pursuing the Ark"
     OPENING_THE_ARK = "Opening the Ark"
+
+#Constants for each level in temple of doom
+class TOD_Levels:
+    SHANGHAI_SHOWDOWN = "Shanghai Showdown"
+    PANKOT_SECRETS = "Pankot Secrets"
+    THE_TEMPLE_OF_KALI = "The Temple of Kali"
+    FREE_THE_SLAVES = "Free the Slaves"
+    ESCAPE_THE_MINES = "Escape the Mines"
+    BATTLE_ON_THE_BRIDGE = "Battle on the Bridge"
 
 #Constants for each level in The Last Crusade
 class TLC_Levels:
