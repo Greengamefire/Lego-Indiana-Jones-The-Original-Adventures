@@ -3,6 +3,7 @@ from BaseClasses import Item, ItemClassification
 from .data.characters import CHARACTERS
 from .data.constants import BASEID
 
+#holds consts for the base id for each item type
 class ItemIds:
     CHARACTERID = BASEID
 
@@ -13,16 +14,19 @@ class ItemTypes:
 class LIJ1Item(Item):
     game = "LEGO Indiana Jones The Original Adventures"
 
+#dataclass to hold all needed information about an item
 @dataclass
 class LIJ1ItemData:
     type:str
     id:int
     classification:ItemClassification
 
+#dict for all our items
 items_dict = {
     **{name: LIJ1ItemData(type = ItemTypes.CHARACTER, id = ItemIds.CHARACTERID + data.id, classification = ItemClassification.progression) for name, data in CHARACTERS.items()},
 }
 
+#dict for all filler items that can be as many or as few as needed
 filler_dict = {
     "filler": LIJ1ItemData(type = "Filler", id = 1, classification = ItemClassification.filler),
 }
@@ -43,6 +47,7 @@ def create_items(world):
     itempool.extend(create_filler(world, len(itempool)))
     world.multiworld.itempool += itempool
 
+#fill all unfilled locations with random amounts of each filler type from the fillerpool
 def create_filler(world, filled_locations):
     fillerpool: list[Item] = []
     unfilled_locations = world.multiworld.get_unfilled_locations(world.player)
