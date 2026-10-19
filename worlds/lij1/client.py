@@ -8,6 +8,8 @@ from pymem import pymem
 from pymem.exception import ProcessNotFound
 from NetUtils import JSONMessagePart, JSONTypes, NetworkItem
 from .data.characters import CHARACTERS, CharacterNames
+from .items import ItemTypes, items_dict
+from ..saving_princess.Items import item_dict
 
 PROCESS_NAME = "LEGOIndy.exe"
 module_name = "LEGOIndy.exe"
@@ -115,10 +117,13 @@ async def item_consumer(ctx: LIJ1Context):
         if ctx.item_queue:
             item = ctx.item_queue.pop(0)
             itemid = item.item
-            if itemid == CHARACTERS[CharacterNames.HAN_SOLO].id:
-                character_address = ctx.module_address+ character_array + CHARACTERS[CharacterNames.HAN_SOLO].character_index
-                logger.info(f"CharAdd:{hex(character_address)}")
-                ctx.game_process.write_uchar(character_address, 3)
+            item_name = ctx.item_names.lookup_in_game(itemid, ctx.game)
+            if items_dict[item_name]:
+                data = items_dict[item_name]
+                if data.type == ItemTypes.CHARACTER:
+                    character_address = ctx.module_address+ character_array + CHARACTERS[item_name].character_index
+                    logger.info(f"CharAdd:{hex(character_address)}")
+                    ctx.game_process.write_uchar(character_address, 3)
 
         await asyncio.sleep(0.2)
 
